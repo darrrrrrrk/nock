@@ -348,9 +348,9 @@ function start_miner_node() {
   echo -e "[*] 正在启动 Miner 节点（使用端口 $LEADER_PORT 和 $FOLLOWER_PORT）..."
   # 检查 nockchain 是否支持 --leader-port 和 --follower-port
   if ./target/release/nockchain --help | grep -q -- "--leader-port"; then
-    NOCKCHAIN_CMD="RUST_LOG=trace ./target/release/nockchain --mining-pubkey \"$PUBLIC_KEY\" --mine --leader-port $LEADER_PORT --follower-port $FOLLOWER_PORT  --peer /ip4/156.67.62.71/udp/3006/quic-v1 --peer /ip4/5.9.104.252/udp/3006/quic-v1 --peer /ip4/65.108.107.111/udp/3006/quic-v1 --peer /ip4/47.86.7.251/udp/3006/quic-v1"
+    NOCKCHAIN_CMD="RUST_LOG=trace ./target/release/nockchain --mining-pubkey \"$PUBLIC_KEY\" --mine --leader-port $LEADER_PORT --follower-port $FOLLOWER_PORT   --peer /ip4/156.67.62.71/udp/3006/quic-v1 --peer /ip4/5.9.104.252/udp/3006/quic-v1 --peer /ip4/65.108.107.111/udp/3006/quic-v1 --peer /ip4/47.86.7.251/udp/3006/quic-v1  --peer /ip4/95.216.102.60/udp/3006/quic-v1 --peer /ip4/65.108.123.225/udp/3006/quic-v1 --peer /ip4/65.109.156.108/udp/3006/quic-v1 --peer /ip4/65.21.67.175/udp/3006/quic-v1 --peer /ip4/65.109.156.172/udp/3006/quic-v1 --peer /ip4/34.174.22.166/udp/3006/quic-v1 --peer /ip4/34.95.155.151/udp/30000/quic-v1 --peer /ip4/34.18.98.38/udp/30000/quic-v1"
   else
-    NOCKCHAIN_CMD="RUST_LOG=trace ./target/release/nockchain --mining-pubkey \"$PUBLIC_KEY\" --mine --peer /ip4/156.67.62.71/udp/3006/quic-v1 --peer /ip4/5.9.104.252/udp/3006/quic-v1 --peer /ip4/65.108.107.111/udp/3006/quic-v1 --peer /ip4/47.86.7.251/udp/3006/quic-v1"
+    NOCKCHAIN_CMD="RUST_LOG=trace ./target/release/nockchain --mining-pubkey \"$PUBLIC_KEY\" --mine --peer /ip4/156.67.62.71/udp/3006/quic-v1 --peer /ip4/5.9.104.252/udp/3006/quic-v1 --peer /ip4/65.108.107.111/udp/3006/quic-v1 --peer /ip4/47.86.7.251/udp/3006/quic-v1  --peer /ip4/95.216.102.60/udp/3006/quic-v1 --peer /ip4/65.108.123.225/udp/3006/quic-v1 --peer /ip4/65.109.156.108/udp/3006/quic-v1 --peer /ip4/65.21.67.175/udp/3006/quic-v1 --peer /ip4/65.109.156.172/udp/3006/quic-v1 --peer /ip4/34.174.22.166/udp/3006/quic-v1 --peer /ip4/34.95.155.151/udp/30000/quic-v1 --peer /ip4/34.18.98.38/udp/30000/quic-v1"
   fi
 
   # 在 screen 会话中运行 nockchain 命令，输出同时显示在 screen 和 miner.log
